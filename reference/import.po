@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-03 11:11+0800\n"
-"PO-Revision-Date: 2024-10-08 15:45+0800\n"
+"PO-Revision-Date: 2024-10-29 01:29+0800\n"
 "Last-Translator: Ken Cheng <ken71301@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
 "tw)\n"
@@ -745,7 +745,7 @@ msgstr ""
 
 #: ../../reference/import.rst:412
 msgid "Loaders"
-msgstr ""
+msgstr "載入器"
 
 #: ../../reference/import.rst:414
 msgid ""
@@ -754,10 +754,13 @@ msgid ""
 "method with a single argument, the module object to execute.  Any value "
 "returned from :meth:`~importlib.abc.Loader.exec_module` is ignored."
 msgstr ""
+"模組載入器提供了載入的關鍵功能：模組執行。引入機制會以單一引數（即要執行的模"
+"組物件）呼叫 :meth:`importlib.abc.Loader.exec_module` 方法。任何從 :meth:"
+"`~importlib.abc.Loader.exec_module` 回傳的值都會被忽略。"
 
 #: ../../reference/import.rst:419
 msgid "Loaders must satisfy the following requirements:"
-msgstr ""
+msgstr "載入器必須滿足以下要求："
 
 #: ../../reference/import.rst:421
 msgid ""
@@ -765,6 +768,8 @@ msgid ""
 "dynamically loaded extension), the loader should execute the module's code "
 "in the module's global name space (``module.__dict__``)."
 msgstr ""
+"如果模組是 Python 模組（而非內建模組或動態載入的擴充），載入器應在模組的全域"
+"命名空間 (``module.__dict__``\\ ) 中執行該模組的程式碼。"
 
 #: ../../reference/import.rst:425
 msgid ""
@@ -772,6 +777,8 @@ msgid ""
 "`ImportError`, although any other exception raised during :meth:`~importlib."
 "abc.Loader.exec_module` will be propagated."
 msgstr ""
+"如果載入器無法執行該模組，應引發 :exc:`ImportError`。不過，在 :meth:"
+"`~importlib.abc.Loader.exec_module` 中引發的任何其他例外也會被傳播。"
 
 #: ../../reference/import.rst:429
 msgid ""
@@ -779,6 +786,9 @@ msgid ""
 "the :meth:`~importlib.abc.MetaPathFinder.find_spec` method would just return "
 "a spec with the loader set to ``self``."
 msgstr ""
+"在許多情況下，尋檢器和載入器可以是同一個物件；在這種情況下，:meth:"
+"`~importlib.abc.MetaPathFinder.find_spec` 方法只需回傳一個載入器設為 "
+"``self`` 的規格即可。"
 
 #: ../../reference/import.rst:433
 msgid ""
@@ -789,10 +799,14 @@ msgid ""
 "the module object.  If the method returns ``None``, the import machinery "
 "will create the new module itself."
 msgstr ""
+"模組載入器可以選擇透過實作 :meth:`~importlib.abc.Loader.create_module` 方法，"
+"在載入過程中建立模組物件。該方法接受一個引數，即模組規格，並回傳在載入過程中"
+"要使用的新的模組物件。``create_module()`` 不需要在模組物件上設定任何屬性。如"
+"果該方法回傳 ``None``，引入機制將自行建立新的模組。"
 
 #: ../../reference/import.rst:440
 msgid "The :meth:`~importlib.abc.Loader.create_module` method of loaders."
-msgstr ""
+msgstr "載入器的 :meth:`~importlib.abc.Loader.create_module` 方法。"
 
 #: ../../reference/import.rst:443
 msgid ""
@@ -800,6 +814,8 @@ msgid ""
 "`~importlib.abc.Loader.exec_module` and the import machinery assumed all the "
 "boilerplate responsibilities of loading."
 msgstr ""
+":meth:`~importlib.abc.Loader.load_module` 方法已被 :meth:`~importlib.abc."
+"Loader.exec_module` 取代，引入機制已承擔所有載入的功能。"
 
 #: ../../reference/import.rst:448
 msgid ""
@@ -808,6 +824,9 @@ msgid ""
 "also implement ``exec_module()``.  However, ``load_module()`` has been "
 "deprecated and loaders should implement ``exec_module()`` instead."
 msgstr ""
+"為了與現有的載入器相容，引入機制會在載入器未實作 ``exec_module()`` 且存在 "
+"``load_module()`` 方法時使用該方法。然而，``load_module()`` 已被棄用，載入器"
+"應改為實作 ``exec_module()``。"
 
 #: ../../reference/import.rst:453
 msgid ""
@@ -815,6 +834,8 @@ msgid ""
 "functionality described above in addition to executing the module.  All the "
 "same constraints apply, with some additional clarification:"
 msgstr ""
+"``load_module()`` 方法除了執行模組外，還必須實作上述全部的模板載入功能。所有"
+"相同的限制依然適用，並且還有一些額外的說明："
 
 #: ../../reference/import.rst:457
 msgid ""
@@ -824,12 +845,18 @@ msgid ""
 "exist in :data:`sys.modules`, the loader must create a new module object and "
 "add it to :data:`sys.modules`."
 msgstr ""
+"如果 :data:`sys.modules` 中已存在具有給定名稱的模組物件，載入器必須使用該模組"
+"（否則 :func:`importlib.reload` 將無法正常運作）。如果命名模組不存在於 :data:"
+"`sys.modules` 中，載入器必須建立一個新的模組物件並將其新增至 :data:`sys."
+"modules`。"
 
 #: ../../reference/import.rst:463
 msgid ""
 "The module *must* exist in :data:`sys.modules` before the loader executes "
 "the module code, to prevent unbounded recursion or multiple loading."
 msgstr ""
+"在載入器執行模組程式碼之前，該模組\\ *必須*\\ 已存在於 :data:`sys.modules` "
+"中，以防止無限遞迴或多次載入。"
 
 #: ../../reference/import.rst:467
 msgid ""
@@ -837,22 +864,29 @@ msgid ""
 "data:`sys.modules`, but it must remove **only** the failing module(s), and "
 "only if the loader itself has loaded the module(s) explicitly."
 msgstr ""
+"如果載入失敗，載入器必須移除已經插入到 :data:`sys.modules` 中的任何模組，但"
+"\\ **只能**\\ 移除失敗的模組（們），且僅在載入器本身明確載入這些模組時才需移"
+"除。"
 
 #: ../../reference/import.rst:472
 msgid ""
 "A :exc:`DeprecationWarning` is raised when ``exec_module()`` is defined but "
 "``create_module()`` is not."
 msgstr ""
+"當 ``exec_module()`` 已定義但未定義 ``create_module()`` 時，將引發 :exc:"
+"`DeprecationWarning`。"
 
 #: ../../reference/import.rst:476
 msgid ""
 "An :exc:`ImportError` is raised when ``exec_module()`` is defined but "
 "``create_module()`` is not."
 msgstr ""
+"當 ``exec_module()`` 已定義但未定義 ``create_module()`` 時，將引發 :exc:"
+"`ImportError`。"
 
 #: ../../reference/import.rst:480
 msgid "Use of ``load_module()`` will raise :exc:`ImportWarning`."
-msgstr ""
+msgstr "使用 ``load_module()`` 將引發 :exc:`ImportWarning`。"
 
 #: ../../reference/import.rst:484
 msgid "Submodules"
