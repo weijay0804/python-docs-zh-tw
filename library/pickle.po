@@ -1303,8 +1303,7 @@ msgstr ""
 "`~object.__dict__` 屬性中。"
 
 # SkyLull: [T]
-# signature: https://stackoverflow.com/questions/72788932/what-is-a-function-
-# signature -> 輸入特徵
+# signature: https://jo-jo.medium.com/c-c-%E5%B9%BC%E5%B9%BC%E7%8F%AD-%E7%B0%BD%E7%AB%A0signature-fa9b04e1a3e2
 #: ../../library/pickle.rst:715
 msgid ""
 "Optionally, an iterator (and not a sequence) yielding successive items. "
@@ -1319,8 +1318,8 @@ msgstr ""
 "可選項。一個用來提供連續項目的疊代器（而非序列）。這些項目將個別透過 ``obj."
 "append(item)`` 方法或成批次地透過 ``obj.extend(list_of_items)`` 方法被附加到"
 "物件中。主要用於串列（list）子類別，但只要其他類別具有相應的 :ref:`append 和 "
-"extend 方法 <typesseq-common>`\\ 和相同的輸入特徵（signature）就也可以使用。 "
-"（如何選擇使用 :meth:`!append` 或 :meth:`!extend` 方法將取決於所選用的 "
+"extend 方法 <typesseq-common>`\\ 以及相同的函式簽章（signature）就也可以使用。 "
+"（是否會調用 :meth:`!append` 或 :meth:`!extend` 方法將取決於所選用的 "
 "pickle 協定版本以及要附加的項目數量，因此必須同時支援這兩種方法。）"
 
 #: ../../library/pickle.rst:725
@@ -1342,7 +1341,7 @@ msgid ""
 "method. If not ``None``, this callable will have priority over ``obj``'s :"
 "meth:`__setstate__`."
 msgstr ""
-"可選項。一個具有 ``(obj, state)`` 輸入特徵（signature）的可呼叫物件。該物件允"
+"可選項。一個具有 ``(obj, state)`` 函式簽章（signature）的可呼叫物件。該物件允"
 "許使用者以可編寫的邏輯，而不是物件 ``obj`` 預設的 :meth:`__setstate__` 靜態方"
 "法去控制特定物件的狀態更新方式。如果這個物件不是 ``None``，這個物件的呼叫優先"
 "權將優於物件 ``obj`` 的 :meth:`__setstate__`。"
