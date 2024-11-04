@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-03 11:11+0800\n"
-"PO-Revision-Date: 2024-10-29 01:29+0800\n"
+"PO-Revision-Date: 2024-11-04 22:16+0800\n"
 "Last-Translator: Ken Cheng <ken71301@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
 "tw)\n"
@@ -901,6 +901,11 @@ msgid ""
 "``spam.foo``, ``spam`` will have an attribute ``foo`` which is bound to the "
 "submodule.  Let's say you have the following directory structure::"
 msgstr ""
+"當使用任何機制（例如 ``importlib`` APIs，``import`` 或 ``import-from`` 陳述"
+"式，或內建的 ``__import__()``\\ ）載入子模組時，會將子模組物件繫結到父模組的"
+"命名空間中。例如，如果套件 ``spam`` 有一個子模組 ``foo``，則在引入 ``spam."
+"foo`` 之後，``spam`` 將擁有一個名為 ``foo`` 的屬性，該屬性繫結到子模組。我們"
+"假設你有以下的目錄結構： ::"
 
 #: ../../reference/import.rst:493
 msgid ""
@@ -914,7 +919,7 @@ msgstr ""
 
 #: ../../reference/import.rst:497
 msgid "and ``spam/__init__.py`` has the following line in it::"
-msgstr ""
+msgstr "並且 ``spam/__init__.py`` 中包含以下程式碼： ::"
 
 #: ../../reference/import.rst:499
 msgid "from .foo import Foo"
@@ -925,6 +930,7 @@ msgid ""
 "then executing the following puts name bindings for ``foo`` and ``Foo`` in "
 "the ``spam`` module::"
 msgstr ""
+"那麼執行以下程式碼會將 ``foo`` 和 ``Foo`` 的名稱繫結到 ``spam`` 模組中： ::"
 
 #: ../../reference/import.rst:504
 msgid ""
@@ -948,6 +954,14 @@ msgid ""
 "foo']`` (as you would after the above import), the latter must appear as the "
 "``foo`` attribute of the former."
 msgstr ""
+"鑑於 Python 相似的名稱繫結規則，這可能看起來有些出人意料，但這實際上是引入系"
+"統的一個基本特性。不變的是如果你擁有 ``sys.modules['spam']`` 和 ``sys."
+"modules['spam.foo']``（就像上述引入後那樣），那麼後者必須作為前者的 ``foo`` "
+"屬性出現。"
+
+#: ../../reference/import.rst:517
+msgid "Module spec"
+msgstr "模組規格"
 
 #: ../../reference/import.rst:519
 msgid "Module specs"
@@ -960,6 +974,9 @@ msgid ""
 "modules.  The purpose of a module's spec is to encapsulate this import-"
 "related information on a per-module basis."
 msgstr ""
+"引入機制在引入過程中使用有關每個模組的各種資訊，尤其是在載入之前。大多數資訊"
+"對所有模組來說都是通用的。模組規格的目的是以每個模組為基礎封裝這些與引入相關"
+"的資訊。"
 
 #: ../../reference/import.rst:526
 msgid ""
@@ -969,6 +986,9 @@ msgid ""
 "machinery to perform the boilerplate operations of loading, whereas without "
 "a module spec the loader had that responsibility."
 msgstr ""
+"在引入過程中使用規格允許在引入系統的各個組件之間傳遞狀態，例如在建立模組規格"
+"的尋檢器和執行該規格的載入器之間傳遞。最重要的是，這允許引入機制執行載入的樣"
+"板操作，而在沒有模組規格的情況下，這些操作則是載入器的責任。"
 
 #: ../../reference/import.rst:532
 msgid ""
@@ -977,6 +997,8 @@ msgid ""
 "interpreter startup <programs>`. The one exception is ``__main__``, where :"
 "attr:`!__spec__` is :ref:`set to None in some cases <main_spec>`."
 msgstr ""
+"模組的規格以 ``__spec__`` 屬性的形式公開在模組物件上。有關模組規格內容的詳細"
+"資訊，請參閱 :class:`~importlib.machinery.ModuleSpec`。"
 
 #: ../../reference/import.rst:538
 msgid ""
