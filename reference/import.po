@@ -959,13 +959,9 @@ msgstr ""
 "modules['spam.foo']``（就像上述引入後那樣），那麼後者必須作為前者的 ``foo`` "
 "屬性出現。"
 
-#: ../../reference/import.rst:517
-msgid "Module spec"
-msgstr "模組規格"
-
 #: ../../reference/import.rst:519
 msgid "Module specs"
-msgstr ""
+msgstr "模組規格"
 
 #: ../../reference/import.rst:521
 msgid ""
