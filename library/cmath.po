@@ -1,5 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 #
 # Translators:
@@ -7,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-03 11:11+0800\n"
+"POT-Creation-Date: 2024-11-05 00:13+0000\n"
 "PO-Revision-Date: 2024-03-14 09:26+0800\n"
 "Last-Translator: Enkai Huang <enkaihuang2021@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -311,93 +310,89 @@ msgstr "如果 *a* 和 *b* 的值相互接近，則回傳 ``True``，否則回�
 #: ../../library/cmath.rst:223
 msgid ""
 "Whether or not two values are considered close is determined according to "
-"given absolute and relative tolerances."
+"given absolute and relative tolerances.  If no errors occur, the result will "
+"be: ``abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)``."
 msgstr ""
-"兩個值是否被認為相互接近是由給定的絕對和相對容許偏差 (tolerance) 所決定的。"
+"兩數是否足夠接近取決於給定的絕對及相對容許偏差 (tolerance)。如果沒有錯誤發"
+"生，結果將為：``abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)``。"
 
-#: ../../library/cmath.rst:226
+#: ../../library/cmath.rst:227
 msgid ""
 "*rel_tol* is the relative tolerance -- it is the maximum allowed difference "
 "between *a* and *b*, relative to the larger absolute value of *a* or *b*. "
 "For example, to set a tolerance of 5%, pass ``rel_tol=0.05``.  The default "
 "tolerance is ``1e-09``, which assures that the two values are the same "
-"within about 9 decimal digits.  *rel_tol* must be greater than zero."
+"within about 9 decimal digits.  *rel_tol* must be nonnegative and less than "
+"``1.0``."
 msgstr ""
-"*rel_tol* 是相對容許偏差 -- 它是 *a* 和 *b* 之間的最大容許偏差值，相對於 *a* "
-"或 *b* 的較大絕對值。例如，要設定 5% 的容許偏差，請傳遞 ``rel_tol=0.05``。預"
-"設容許偏差是 ``1e-09``，它確保兩個值在大約 9 位十進制數字內相同。 *rel_tol* "
-"必須大於零。"
+"*rel_tol* 為相對容許偏差 ── *a* 與 *b* 兩數差的最大容許值，與 *a* 及 *b* 兩數"
+"的絕對值中較大者相關。例如欲設置 5% 的容許偏差，則傳入 ``rel_tol=0.05``。其預"
+"設值為 ``1e-09``，該值可確保兩數於大約 9 個十進數位內相同。*rel_tol* 須不為負"
+"且小於 ``1.0``。"
 
-#: ../../library/cmath.rst:232
+#: ../../library/cmath.rst:234
 msgid ""
-"*abs_tol* is the minimum absolute tolerance -- useful for comparisons near "
-"zero. *abs_tol* must be at least zero."
+"*abs_tol* is the absolute tolerance; it defaults to ``0.0`` and it must be "
+"nonnegative.  When comparing ``x`` to ``0.0``, ``isclose(x, 0)`` is computed "
+"as ``abs(x) <= rel_tol  * abs(x)``, which is ``False`` for any ``x`` and "
+"rel_tol less than ``1.0``.  So add an appropriate positive abs_tol argument "
+"to the call."
 msgstr ""
-"*abs_tol* 是最小絕對容許偏差 -- 對於接近零的比較很有用。 *abs_tol* 必須至少為"
-"零。"
 
-#: ../../library/cmath.rst:235
-msgid ""
-"If no errors occur, the result will be: ``abs(a-b) <= max(rel_tol * "
-"max(abs(a), abs(b)), abs_tol)``."
-msgstr ""
-"如果未發生錯誤，結果將為： ``abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), "
-"abs_tol)``。"
-
-#: ../../library/cmath.rst:238
+#: ../../library/cmath.rst:240
 msgid ""
 "The IEEE 754 special values of ``NaN``, ``inf``, and ``-inf`` will be "
 "handled according to IEEE rules.  Specifically, ``NaN`` is not considered "
 "close to any other value, including ``NaN``.  ``inf`` and ``-inf`` are only "
 "considered close to themselves."
 msgstr ""
-"IEEE 754 特殊值 ``NaN`` 、 ``inf`` 和 ``-inf`` 將會根據 IEEE 規則進行處理。具"
-"體來說， ``NaN`` 不被認為接近任何其他值，包括 ``NaN``。 ``inf`` 和 ``-inf`` "
-"只被認為是接近它們自己的。"
+"定義於 IEEE 754 浮點標準中的特殊值 ``NaN``、``inf`` 和 ``-inf`` 會根據該標準"
+"處理。更明確地說，``NaN`` 不會與包含自身在內的任何數字足夠接近，而 ``inf`` "
+"及 ``-inf`` 皆只與自身接近。"
 
-#: ../../library/cmath.rst:247
+#: ../../library/cmath.rst:249
 msgid ":pep:`485` -- A function for testing approximate equality"
-msgstr ":pep:`485` -- 一個用來測試近似相等的函式"
+msgstr ":pep:`485` ── 用於測試近似相等的函式"
 
-#: ../../library/cmath.rst:251
+#: ../../library/cmath.rst:253
 msgid "Constants"
 msgstr "常數"
 
-#: ../../library/cmath.rst:255
+#: ../../library/cmath.rst:257
 msgid "The mathematical constant *π*, as a float."
 msgstr "數學常數 *π*，作為一個浮點數。"
 
-#: ../../library/cmath.rst:260
+#: ../../library/cmath.rst:262
 msgid "The mathematical constant *e*, as a float."
 msgstr "數學常數 *e*，作為一個浮點數。"
 
-#: ../../library/cmath.rst:265
+#: ../../library/cmath.rst:267
 msgid "The mathematical constant *τ*, as a float."
 msgstr "數學常數 *τ*，作為一個浮點數。"
 
-#: ../../library/cmath.rst:272
+#: ../../library/cmath.rst:274
 msgid "Floating-point positive infinity. Equivalent to ``float('inf')``."
 msgstr "正無窮大的浮點數。相當於 ``float('inf')``。"
 
-#: ../../library/cmath.rst:279
+#: ../../library/cmath.rst:281
 msgid ""
 "Complex number with zero real part and positive infinity imaginary part. "
 "Equivalent to ``complex(0.0, float('inf'))``."
 msgstr "實部為零和虛部為正無窮的複數。相當於 ``complex(0.0, float('inf'))``。"
 
-#: ../../library/cmath.rst:287
+#: ../../library/cmath.rst:289
 msgid ""
 "A floating-point \"not a number\" (NaN) value.  Equivalent to "
 "``float('nan')``."
 msgstr "浮點「非數字」 (NaN) 值。相當於 ``float('nan')``。"
 
-#: ../../library/cmath.rst:295
+#: ../../library/cmath.rst:297
 msgid ""
 "Complex number with zero real part and NaN imaginary part. Equivalent to "
 "``complex(0.0, float('nan'))``."
 msgstr "實部為零和虛部為 NaN 的複數。相當於 ``complex(0.0, float('nan'))``。"
 
-#: ../../library/cmath.rst:303
+#: ../../library/cmath.rst:305
 msgid ""
 "Note that the selection of functions is similar, but not identical, to that "
 "in module :mod:`math`.  The reason for having two modules is that some users "
@@ -413,7 +408,7 @@ msgstr ""
 "sqrt(-1)`` 引發異常，也不願它回傳複數。另請注意， :mod:`cmath` 中所定義的函式"
 "始終都會回傳複數，即使答案可以表示為實數（在這種情況下，複數的虛部為零）。"
 
-#: ../../library/cmath.rst:311
+#: ../../library/cmath.rst:313
 msgid ""
 "A note on branch cuts: They are curves along which the given function fails "
 "to be continuous.  They are a necessary feature of many complex functions.  "
@@ -428,17 +423,17 @@ msgstr ""
 "所有關於複變函數的（不是太初級的）書籍以獲得啟發。對於如何正確地基於數值目的"
 "選擇分枝切割的相關訊息，以下內容應該是一個很好的參考："
 
-#: ../../library/cmath.rst:321
+#: ../../library/cmath.rst:323
 msgid ""
 "Kahan, W:  Branch cuts for complex elementary functions; or, Much ado about "
 "nothing's sign bit.  In Iserles, A., and Powell, M. (eds.), The state of the "
 "art in numerical analysis. Clarendon Press (1987) pp165--211."
 msgstr ""
 
-#: ../../library/cmath.rst:301
+#: ../../library/cmath.rst:303
 msgid "module"
 msgstr "module（模組）"
 
-#: ../../library/cmath.rst:301
+#: ../../library/cmath.rst:303
 msgid "math"
 msgstr "math（數學）"

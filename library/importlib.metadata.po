@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 03:35+0000\n"
+"POT-Creation-Date: 2024-10-31 00:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
@@ -72,7 +72,7 @@ msgstr ""
 
 #: ../../library/importlib.metadata.rst:55
 msgid "https://importlib-metadata.readthedocs.io/"
-msgstr ""
+msgstr "https://importlib-metadata.readthedocs.io/"
 
 #: ../../library/importlib.metadata.rst:56
 msgid ""
@@ -369,13 +369,10 @@ msgid ""
 msgstr ""
 
 #: ../../library/importlib.metadata.rst:231
-msgid "A concrete implementation of the"
-msgstr ""
-
-#: ../../library/importlib.metadata.rst:232
 msgid ""
-"`PackageMetadata protocol <https://importlib-metadata.readthedocs.io/en/"
-"latest/api.html#importlib_metadata.PackageMetadata>`_."
+"A concrete implementation of the `PackageMetadata protocol <https://"
+"importlib-metadata.readthedocs.io/en/latest/api.html#importlib_metadata."
+"PackageMetadata>`_."
 msgstr ""
 
 #: ../../library/importlib.metadata.rst:234
@@ -878,7 +875,7 @@ msgstr ""
 
 #: ../../library/importlib.metadata.rst:558
 msgid ""
-"class DatabaseDistribution(importlib.metadata.Distributon):\n"
+"class DatabaseDistribution(importlib.metadata.Distribution):\n"
 "    def __init__(self, record):\n"
 "        self.record = record\n"
 "\n"
