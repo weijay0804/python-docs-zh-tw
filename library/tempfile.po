@@ -186,7 +186,7 @@ msgid ""
 msgstr ""
 "回傳的物件始終是一個\\ :term:`類檔案物件 <file-like object>`，其 :attr:`!"
 "file` 屬性是底層的真實檔案物件。這個類檔案物件可以在 :keyword:`with` 陳述式中"
-"使用，就像普通檔案一樣。臨時檔案的名稱可以從回傳的類檔案物件的 :attr:!name` "
+"使用，就像普通檔案一樣。臨時檔案的名稱可以從回傳的類檔案物件的 :attr:`!name` "
 "屬性中取得。在 Unix 上則與 :func:`TemporaryFile` 不同，目錄條目不會在檔案建立"
 "後立即被取消鏈接 (unlink)。"
 
