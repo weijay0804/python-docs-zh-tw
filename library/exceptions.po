@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-23 07:52+0800\n"
-"PO-Revision-Date: 2024-09-17 09:18+0800\n"
+"PO-Revision-Date: 2024-12-20 16:57+0800\n"
 "Last-Translator: Adrian Liaw <adrianliaw2000@gmail.com>\n"
 "Language-Team: Chinese - TAIWAN (https://github.com/python/python-docs-zh-"
 "tw)\n"
@@ -18,7 +18,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.2\n"
 
 #: ../../library/exceptions.rst:4
 msgid "Built-in Exceptions"
@@ -163,7 +162,7 @@ msgid ""
 "possible conflicts between how the bases handle the ``args`` attribute, as "
 "well as due to possible memory layout incompatibilities."
 msgstr ""
-"使用者的程式碼可以建立繼承自例外類型的子類別。建議一次只繼承一種例外類型以避"
+"使用者的程式碼可以建立繼承自例外型別的子類別。建議一次只繼承一種例外型別以避"
 "免在基底類別之間如何處理 ``args`` 屬性的任何可能衝突，以及可能的記憶體佈局 "
 "(memory layout) 不相容。"
 
@@ -177,9 +176,9 @@ msgid ""
 "it's recommended to avoid subclassing multiple exception types altogether."
 msgstr ""
 "為了效率，大部分的內建例外使用 C 來實作，參考 :source:`Objects/exceptions."
-"c`。一些例外有客製化的記憶體佈局，使其不可能建立一個繼承多種例外類型的子類"
-"別。類型的記憶體佈局是實作細節且可能會在不同 Python 版本間改變，造成未來新的"
-"衝突。因此，總之建議避免繼承多種例外類型。"
+"c`。一些例外有客製化的記憶體佈局，使其不可能建立一個繼承多種例外型別的子類"
+"別。型別的記憶體佈局是實作細節且可能會在不同 Python 版本間改變，造成未來新的"
+"衝突。因此，總之建議避免繼承多種例外型別。"
 
 #: ../../library/exceptions.rst:105
 msgid "Base classes"
@@ -624,24 +623,26 @@ msgstr ""
 "化，大部分的浮點數運算都沒有被檢查。"
 
 #: ../../library/exceptions.rst:421
-#, fuzzy
 msgid ""
 "This exception is derived from :exc:`RuntimeError`.  It is raised when an "
 "operation is blocked during interpreter shutdown also known as :term:`Python "
 "finalization <interpreter shutdown>`."
 msgstr ""
-"此例外衍生自 :exc:`RuntimeError`。當直譯器偵測到超過最大的遞迴深度（參考 :"
-"func:`sys.getrecursionlimit`）時會引發此例外。"
+"此例外衍生自 :exc:`RuntimeError`。當一個操作在直譯器關閉（也稱作 :term:"
+"`Python 最終化 (Python finalization） <interpreter shutdown>`）期間被阻塞會引"
+"發此例外。"
 
 #: ../../library/exceptions.rst:425
 msgid ""
 "Examples of operations which can be blocked with a :exc:"
 "`PythonFinalizationError` during the Python finalization:"
 msgstr ""
+"在 Python 最終化期間，能夠以 :exc:`PythonFinalizationError` 被阻塞的操作範"
+"例："
 
 #: ../../library/exceptions.rst:428
 msgid "Creating a new Python thread."
-msgstr ""
+msgstr "建立新的 Python 執行緒。"
 
 #: ../../library/exceptions.rst:429
 msgid ":func:`os.fork`."
@@ -649,7 +650,7 @@ msgstr ":func:`os.fork`。"
 
 #: ../../library/exceptions.rst:431
 msgid "See also the :func:`sys.is_finalizing` function."
-msgstr ""
+msgstr "也可以參閱 :func:`sys.is_finalizing` 函式。"
 
 #: ../../library/exceptions.rst:433 ../../library/exceptions.rst:443
 msgid "Previously, a plain :exc:`RuntimeError` was raised."
@@ -878,7 +879,7 @@ msgstr ""
 "可以正確地向上傳遞並導致直譯器結束。當它未被處理時，Python 直譯器會結束；不會"
 "印出堆疊回溯。建構函式接受跟傳入 :func:`sys.exit` 一樣的可選引數。如果該值是"
 "整數，它會指定系統的結束狀態（傳入 C 的 :c:func:`exit` 函式 ）；如果它是 "
-"``None``，結束狀態會是 0；如果它是其他類型（例如字串），則物件的值會被印出而"
+"``None``，結束狀態會是 0；如果它是其他型別（例如字串），則物件的值會被印出而"
 "結束狀態是 1。"
 
 #: ../../library/exceptions.rst:587
@@ -907,8 +908,8 @@ msgid ""
 "inappropriate type.  The associated value is a string giving details about "
 "the type mismatch."
 msgstr ""
-"當一個操作或函式被用在不適合的類型的物件時會引發此例外。關聯值是一個字串，提"
-"供關於不相符類型的細節。"
+"當一個操作或函式被用在不適合的型別的物件時會引發此例外。關聯值是一個字串，提"
+"供關於不相符型別的細節。"
 
 #: ../../library/exceptions.rst:605
 msgid ""
@@ -928,7 +929,7 @@ msgid ""
 "arguments with the wrong value (e.g. a number outside expected boundaries) "
 "should result in a :exc:`ValueError`."
 msgstr ""
-"傳入錯誤類型的引數（例如當預期傳入 :class:`int` 卻傳入 :class:`list`）應該要"
+"傳入錯誤型別的引數（例如當預期傳入 :class:`int` 卻傳入 :class:`list`）應該要"
 "導致 :exc:`TypeError`，但傳入帶有錯誤值的引數（例如超出預期範圍的數值）應該要"
 "導致 :exc:`ValueError`。"
 
@@ -1008,7 +1009,7 @@ msgid ""
 "type but an inappropriate value, and the situation is not described by a "
 "more precise exception such as :exc:`IndexError`."
 msgstr ""
-"當一個操作或函式收到引數是正確類型但是不適合的值，且該情況無法被更精確的例外"
+"當一個操作或函式收到引數是正確型別但是不適合的值，且該情況無法被更精確的例外"
 "例如 :exc:`IndexError` 所描述時會引發此例外。"
 
 #: ../../library/exceptions.rst:679
@@ -1337,7 +1338,7 @@ msgid ""
 "based on the types of the contained exceptions."
 msgstr ""
 "當需要引發多個不相關例外時會使用下列的類別。它們是例外階層的一部分所以可以像"
-"所有其他例外一樣使用 :keyword:`except` 來處理。此外，它們會以包含的例外類型為"
+"所有其他例外一樣使用 :keyword:`except` 來處理。此外，它們會以包含的例外型別為"
 "基礎來比對其子群組而被 :keyword:`except*<except_star>` 辨認出來。"
 
 #: ../../library/exceptions.rst:932
@@ -1350,7 +1351,7 @@ msgid ""
 "is so that ``except Exception`` catches an :exc:`ExceptionGroup` but not :"
 "exc:`BaseExceptionGroup`."
 msgstr ""
-"這兩個例外類型都將例外包裝在序列 ``excs`` 中。``msg`` 參數必須是字串。這兩個"
+"這兩個例外型別都將例外包裝在序列 ``excs`` 中。``msg`` 參數必須是字串。這兩個"
 "類別的差異是 :exc:`BaseExceptionGroup` 擴充了 :exc:`BaseException` 且可以包裝"
 "任何例外，而 :exc:`ExceptionGroup` 擴充了 :exc:`Exception` 且只能包裝 :exc:"
 "`Exception` 的子類別。這個設計使得 ``except Exception`` 可以捕捉 :exc:"
@@ -1395,6 +1396,10 @@ msgid ""
 "type object) that accepts an exception as its single argument and returns "
 "true for the exceptions that should be in the subgroup."
 msgstr ""
+"條件式可以是一個例外型別或是例外型別的元組，在此情況下，每個例外都會使用與 "
+"``except`` 子句中使用的相同檢查方法來檢查是否有匹配。條件式也可以是一個可呼叫"
+"物件（除了型別物件之外），其接受一個例外作為單一引數，而如果該例外應該在子群"
+"組中就回傳 true。"
 
 #: ../../library/exceptions.rst:967
 msgid ""
@@ -1420,7 +1425,7 @@ msgstr ""
 
 #: ../../library/exceptions.rst:978
 msgid "``condition`` can be any callable which is not a type object."
-msgstr ""
+msgstr "``condition`` 可以是任何不是型別物件的可呼叫物件。"
 
 #: ../../library/exceptions.rst:983
 msgid ""
@@ -1565,7 +1570,6 @@ msgid "The class hierarchy for built-in exceptions is:"
 msgstr "內建例外的類別階層如下："
 
 #: ../../library/exceptions.rst:1058
-#, fuzzy
 msgid ""
 "BaseException\n"
 " ├── BaseExceptionGroup\n"
@@ -1678,6 +1682,7 @@ msgstr ""
 "      ├── ReferenceError\n"
 "      ├── RuntimeError\n"
 "      │    ├── NotImplementedError\n"
+"      │    ├── PythonFinalizationError\n"
 "      │    └── RecursionError\n"
 "      ├── StopAsyncIteration\n"
 "      ├── StopIteration\n"
@@ -1752,13 +1757,3 @@ msgstr "module（模組）"
 #: ../../library/exceptions.rst:345
 msgid "errno"
 msgstr "errno"
-
-#~ msgid ""
-#~ "The condition can be either a function that accepts an exception and "
-#~ "returns true for those that should be in the subgroup, or it can be an "
-#~ "exception type or a tuple of exception types, which is used to check for "
-#~ "a match using the same check that is used in an ``except`` clause."
-#~ msgstr ""
-#~ "條件可以是一個函式，接受一個例外並對那些應該要在子群組裡的例外回傳 true，"
-#~ "或者可以是一個例外類型或例外類型的元組，並使用與 ``except`` 子句所使用的相"
-#~ "同檢查來檢查是否有比對到。"
