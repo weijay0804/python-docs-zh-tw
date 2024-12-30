@@ -8,7 +8,7 @@
     <title>作業系統工具 &#8212; Python 3.13.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=41b4f12d" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=08c2cdb3" />
     <link rel="stylesheet" type="text/css" href="../_static/sidebar-wrap.css?v=65806c5a" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
@@ -607,6 +607,10 @@ function will be called with no arguments and should return no value.  At most
 function registered last is called first. Each cleanup function will be called
 at most once.  Since Python's internal finalization will have completed before
 the cleanup function, no Python APIs should be called by <em>func</em>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">也參考</p>
+<p><a class="reference internal" href="init.html#c.PyUnstable_AtExit" title="PyUnstable_AtExit"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyUnstable_AtExit()</span></code></a> for passing a <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*data</span></code> argument.</p>
+</div>
 </dd></dl>
 
 </section>
@@ -734,7 +738,7 @@ the cleanup function, no Python APIs should be called by <em>func</em>.</p>
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
-      最後更新於 12月 07, 2024 (13:18 UTC)。
+      最後更新於 12月 30, 2024 (15:25 UTC)。
     
       <a href="/bugs.html">Found a bug</a>?
     

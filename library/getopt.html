@@ -8,7 +8,7 @@
     <title>getopt --- 用於命令列選項的 C 風格剖析器 &#8212; Python 3.13.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=41b4f12d" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=08c2cdb3" />
     <link rel="stylesheet" type="text/css" href="../_static/sidebar-wrap.css?v=65806c5a" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
@@ -26,7 +26,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜尋" href="../search.html" />
     <link rel="copyright" title="版權" href="../copyright.html" />
-    <link rel="next" title="optparse --- 命令列選項剖析器" href="optparse.html" />
+    <link rel="next" title="已移除的模組" href="removed.html" />
     <link rel="prev" title="已被取代的模組" href="superseded.html" />
     
     <link rel="canonical" href="https://docs.python.org/3/library/getopt.html" />
@@ -106,8 +106,8 @@
   </div>
   <div>
     <h4>下個主題</h4>
-    <p class="topless"><a href="optparse.html"
-                          title="下一章"><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code> --- 命令列選項剖析器</a></p>
+    <p class="topless"><a href="removed.html"
+                          title="下一章">已移除的模組</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>此頁面</h3>
@@ -135,7 +135,7 @@
           <a href="../py-modindex.html" title="Python 模組索引"
              >模組</a> |</li>
         <li class="right" >
-          <a href="optparse.html" title="optparse --- 命令列選項剖析器"
+          <a href="removed.html" title="已移除的模組"
              accesskey="N">下一頁</a> |</li>
         <li class="right" >
           <a href="superseded.html" title="已被取代的模組"
@@ -189,18 +189,13 @@
   <section id="module-getopt">
 <span id="getopt-c-style-parser-for-command-line-options"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code> --- 用於命令列選項的 C 風格剖析器<a class="headerlink" href="#module-getopt" title="連結到這個標頭">¶</a></h1>
 <p><strong>原始碼：</strong><a class="extlink-source reference external" href="https://github.com/python/cpython/tree/3.13/Lib/getopt.py">Lib/getopt.py</a></p>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">在 3.13 版之後被棄用: </span>The <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> module is <a class="reference internal" href="../glossary.html#term-soft-deprecated"><span class="xref std std-term">soft deprecated</span></a> and will not be
-developed further; development will continue with the <a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a>
-module.</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">備註</p>
-<p>The <a class="reference internal" href="#module-getopt" title="getopt: Portable parser for command line options; support both short and long option names."><code class="xref py py-mod docutils literal notranslate"><span class="pre">getopt</span></code></a> module is a parser for command line options whose API is
-designed to be familiar to users of the C <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> function. Users who
-are unfamiliar with the C <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> function or who would like to write
-less code and get better help and error messages should consider using the
-<a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> module instead.</p>
+<p>This module is considered feature complete. A more declarative and
+extensible alternative to this API is provided in the <a class="reference internal" href="optparse.html#module-optparse" title="optparse: Command-line option parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a>
+module. Further functional enhancements for command line parameter
+processing are provided either as third party modules on PyPI,
+or else as features in the <a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> module.</p>
 </div>
 <hr class="docutils" />
 <p>This module helps scripts to parse the command line arguments in <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>.
@@ -208,8 +203,13 @@ It supports the same conventions as the Unix <code class="xref c c-func docutils
 the special meanings of arguments of the form '<code class="docutils literal notranslate"><span class="pre">-</span></code>' and '<code class="docutils literal notranslate"><span class="pre">--</span></code>').  Long
 options similar to those supported by GNU software may be used as well via an
 optional third argument.</p>
-<p>This module provides two functions and an
-exception:</p>
+<p>Users who are unfamiliar with the Unix <code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> function should consider
+using the <a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> module instead. Users who are familiar with the Unix
+<code class="xref c c-func docutils literal notranslate"><span class="pre">getopt()</span></code> function, but would like to get equivalent behavior while
+writing less code and getting better help and error messages should consider
+using the <a class="reference internal" href="optparse.html#module-optparse" title="optparse: Command-line option parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a> module. See <a class="reference internal" href="optparse.html#choosing-an-argument-parser"><span class="std std-ref">選擇一個命令列參數剖析函式庫</span></a> for
+additional details.</p>
+<p>這個模組提供兩個函式和一個例外：</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="getopt.getopt">
 <span class="sig-prename descclassname"><span class="pre">getopt.</span></span><span class="sig-name descname"><span class="pre">getopt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shortopts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longopts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#getopt.getopt" title="連結到這個定義">¶</a></dt>
@@ -272,10 +272,10 @@ related option; if there is no specific option to which the exception relates,
 <dl class="py exception">
 <dt class="sig sig-object py" id="getopt.error">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">getopt.</span></span><span class="sig-name descname"><span class="pre">error</span></span><a class="headerlink" href="#getopt.error" title="連結到這個定義">¶</a></dt>
-<dd><p>Alias for <a class="reference internal" href="#getopt.GetoptError" title="getopt.GetoptError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">GetoptError</span></code></a>; for backward compatibility.</p>
+<dd><p>為了向後相容性而設的 <a class="reference internal" href="#getopt.GetoptError" title="getopt.GetoptError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">GetoptError</span></code></a> 別名。</p>
 </dd></dl>
 
-<p>An example using only Unix style options:</p>
+<p>一個僅使用 Unix 風格選項的範例：</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">getopt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="s1">&#39;-a -b -cfoo -d bar a1 a2&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span>
@@ -287,7 +287,7 @@ related option; if there is no specific option to which the exception relates,
 <span class="go">[&#39;a1&#39;, &#39;a2&#39;]</span>
 </pre></div>
 </div>
-<p>Using long option names is equally easy:</p>
+<p>使用長選項名稱同樣容易：</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;--condition=foo --testing --output-file abc.def -x a1 a2&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">args</span>
@@ -300,7 +300,7 @@ related option; if there is no specific option to which the exception relates,
 <span class="go">[&#39;a1&#39;, &#39;a2&#39;]</span>
 </pre></div>
 </div>
-<p>In a script, typical usage is something like this:</p>
+<p>在腳本中，典型的用法如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">getopt</span><span class="o">,</span> <span class="nn">sys</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -323,29 +323,44 @@ related option; if there is no specific option to which the exception relates,
             <span class="n">output</span> <span class="o">=</span> <span class="n">a</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;unhandled option&quot;</span>
-    <span class="c1"># ...</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Note that an equivalent command line interface could be produced with less code
-and more informative help and error messages by using the <a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> module:</p>
+and more informative help and error messages by using the <a class="reference internal" href="optparse.html#module-optparse" title="optparse: Command-line option parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">optparse</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">optparse</span><span class="o">.</span><span class="n">OptionParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;verbose&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+    <span class="n">opts</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A roughly equivalent command line interface for this case can also be
+produced by using the <a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;verbose&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;rest&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-    <span class="c1"># ... do something with args.output ...</span>
-    <span class="c1"># ... do something with args.verbose ..</span>
+    <span class="n">process</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">rest</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>參見 <a class="reference internal" href="optparse.html#choosing-an-argument-parser"><span class="std std-ref">選擇一個命令列參數剖析函式庫</span></a> 以瞭解這段程式碼的 <code class="docutils literal notranslate"><span class="pre">argparse</span></code> 版本與 <code class="docutils literal notranslate"><span class="pre">optparse</span></code>（以及 <code class="docutils literal notranslate"><span class="pre">getopt</span></code>）版本在行為上的差異。</p>
 <div class="admonition seealso">
 <p class="admonition-title">也參考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> 模組</dt><dd><p>Alternative command line option and argument parsing library.</p>
+<dt><a class="reference internal" href="optparse.html#module-optparse" title="optparse: Command-line option parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a> 模組</dt><dd><p>宣告式命令列選項剖析。</p>
+</dd>
+<dt><a class="reference internal" href="argparse.html#module-argparse" title="argparse: Command-line option and argument parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">argparse</span></code></a> 模組</dt><dd><p>More opinionated command line option and argument parsing library.</p>
 </dd>
 </dl>
 </div>
@@ -378,8 +393,8 @@ and more informative help and error messages by using the <a class="reference in
   </div>
   <div>
     <h4>下個主題</h4>
-    <p class="topless"><a href="optparse.html"
-                          title="下一章"><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code> --- 命令列選項剖析器</a></p>
+    <p class="topless"><a href="removed.html"
+                          title="下一章">已移除的模組</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>此頁面</h3>
@@ -410,7 +425,7 @@ and more informative help and error messages by using the <a class="reference in
           <a href="../py-modindex.html" title="Python 模組索引"
              >模組</a> |</li>
         <li class="right" >
-          <a href="optparse.html" title="optparse --- 命令列選項剖析器"
+          <a href="removed.html" title="已移除的模組"
              >下一頁</a> |</li>
         <li class="right" >
           <a href="superseded.html" title="已被取代的模組"
@@ -478,7 +493,7 @@ and more informative help and error messages by using the <a class="reference in
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
-      最後更新於 12月 07, 2024 (13:18 UTC)。
+      最後更新於 12月 30, 2024 (15:25 UTC)。
     
       <a href="/bugs.html">Found a bug</a>?
     

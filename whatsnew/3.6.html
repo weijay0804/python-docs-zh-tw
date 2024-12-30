@@ -8,7 +8,7 @@
     <title>Python 3.6 有什麼新功能 &#8212; Python 3.13.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=41b4f12d" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=08c2cdb3" />
     <link rel="stylesheet" type="text/css" href="../_static/sidebar-wrap.css?v=65806c5a" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
@@ -342,7 +342,7 @@
 <li><p><a class="reference internal" href="#whatsnew36-pep525"><span class="std std-ref">PEP 525</span></a>, asynchronous generators.</p></li>
 <li><p><a class="reference internal" href="#whatsnew36-pep530"><span class="std std-ref">PEP 530</span></a>: asynchronous comprehensions.</p></li>
 </ul>
-<p>New library modules:</p>
+<p>新的函式庫模組：</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../library/secrets.html#module-secrets" title="secrets: Generate secure random numbers for managing secrets."><code class="xref py py-mod docutils literal notranslate"><span class="pre">secrets</span></code></a>: <a class="reference internal" href="#whatsnew36-pep506"><span class="std std-ref">PEP 506 -- Adding A Secrets Module To The Standard Library</span></a>.</p></li>
 </ul>
@@ -962,13 +962,13 @@ on Python 3.6+ and <a class="reference internal" href="../library/os.html#os.ura
 <p>Exhausted iterators of <a class="reference internal" href="../library/array.html#array.array" title="array.array"><code class="xref py py-class docutils literal notranslate"><span class="pre">array.array</span></code></a> will now stay exhausted even
 if the iterated array is extended.  This is consistent with the behavior
 of other mutable sequences.</p>
-<p>Contributed by Serhiy Storchaka in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=26492">bpo-26492</a>.</p>
+<p>由 Serhiy Storchaka 於 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=26492">bpo-26492</a> 中貢獻。</p>
 </section>
 <section id="ast">
 <h3>ast<a class="headerlink" href="#ast" title="連結到這個標頭">¶</a></h3>
 <p>The new <a class="reference internal" href="../library/ast.html#ast.Constant" title="ast.Constant"><code class="xref py py-class docutils literal notranslate"><span class="pre">ast.Constant</span></code></a> AST node has been added.  It can be used
 by external AST optimizers for the purposes of constant folding.</p>
-<p>Contributed by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=26146">bpo-26146</a>.</p>
+<p>由 Victor Stinner 於 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=26146">bpo-26146</a> 中貢獻。</p>
 </section>
 <section id="asyncio">
 <h3>asyncio<a class="headerlink" href="#asyncio" title="連結到這個標頭">¶</a></h3>
@@ -2067,7 +2067,7 @@ attributes to match the documented APIs:
 <a class="reference internal" href="../library/calendar.html#module-calendar" title="calendar: Functions for working with calendars, including some emulation of the Unix cal program."><code class="xref py py-mod docutils literal notranslate"><span class="pre">calendar</span></code></a>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">cgi</span></code>, <a class="reference internal" href="../library/csv.html#module-csv" title="csv: Write and read tabular data to and from delimited files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">csv</span></code></a>,
 <a class="reference internal" href="../library/xml.etree.elementtree.html#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ElementTree</span></code></a>, <a class="reference internal" href="../library/enum.html#module-enum" title="enum: Implementation of an enumeration class."><code class="xref py py-mod docutils literal notranslate"><span class="pre">enum</span></code></a>,
 <a class="reference internal" href="../library/fileinput.html#module-fileinput" title="fileinput: Loop over standard input or a list of files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">fileinput</span></code></a>, <a class="reference internal" href="../library/ftplib.html#module-ftplib" title="ftplib: FTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ftplib</span></code></a>, <a class="reference internal" href="../library/logging.html#module-logging" title="logging: Flexible event logging system for applications."><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a>, <a class="reference internal" href="../library/mailbox.html#module-mailbox" title="mailbox: Manipulate mailboxes in various formats"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mailbox</span></code></a>,
-<a class="reference internal" href="../library/mimetypes.html#module-mimetypes" title="mimetypes: Mapping of filename extensions to MIME types."><code class="xref py py-mod docutils literal notranslate"><span class="pre">mimetypes</span></code></a>, <a class="reference internal" href="../library/optparse.html#module-optparse" title="optparse: Command-line option parsing library.（已棄用）"><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a>, <a class="reference internal" href="../library/plistlib.html#module-plistlib" title="plistlib: Generate and parse Apple plist files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">plistlib</span></code></a>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">smtpd</span></code>,
+<a class="reference internal" href="../library/mimetypes.html#module-mimetypes" title="mimetypes: Mapping of filename extensions to MIME types."><code class="xref py py-mod docutils literal notranslate"><span class="pre">mimetypes</span></code></a>, <a class="reference internal" href="../library/optparse.html#module-optparse" title="optparse: Command-line option parsing library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">optparse</span></code></a>, <a class="reference internal" href="../library/plistlib.html#module-plistlib" title="plistlib: Generate and parse Apple plist files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">plistlib</span></code></a>, <code class="xref py py-mod docutils literal notranslate"><span class="pre">smtpd</span></code>,
 <a class="reference internal" href="../library/subprocess.html#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a>, <a class="reference internal" href="../library/tarfile.html#module-tarfile" title="tarfile: Read and write tar-format archive files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tarfile</span></code></a>, <a class="reference internal" href="../library/threading.html#module-threading" title="threading: Thread-based parallelism."><code class="xref py py-mod docutils literal notranslate"><span class="pre">threading</span></code></a> and
 <a class="reference internal" href="../library/wave.html#module-wave" title="wave: Provide an interface to the WAV sound format."><code class="xref py py-mod docutils literal notranslate"><span class="pre">wave</span></code></a>.  This means they will export new symbols when <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code>
 is used.
@@ -2575,7 +2575,7 @@ characters are controlled by a new module level variable
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
-      最後更新於 12月 07, 2024 (13:18 UTC)。
+      最後更新於 12月 30, 2024 (15:25 UTC)。
     
       <a href="/bugs.html">Found a bug</a>?
     

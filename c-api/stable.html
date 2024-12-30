@@ -8,7 +8,7 @@
     <title>C API 穩定性 &#8212; Python 3.13.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=41b4f12d" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=08c2cdb3" />
     <link rel="stylesheet" type="text/css" href="../_static/sidebar-wrap.css?v=65806c5a" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
@@ -213,19 +213,12 @@
 <p>為簡單起見，本文件討論<em>擴充 (extension)</em>，但受限 API 和穩定 ABI 在所有 API 使用方式中都以相同的方式運作 -- 例如在嵌入式 Python (embedding Python) 中。</p>
 <section id="limited-c-api">
 <span id="id2"></span><h3>受限 C API<a class="headerlink" href="#limited-c-api" title="連結到這個標頭">¶</a></h3>
-<p>Python 3.2 introduced the <em>Limited API</em>, a subset of Python's C API.
-Extensions that only use the Limited API can be
-compiled once and be loaded on multiple versions of Python.
-Contents of the Limited API are <a class="reference internal" href="#limited-api-list"><span class="std std-ref">listed below</span></a>.</p>
+<p>Python 3.2 引入了<em>受限 API (Limited API)</em>，它是 Python C API 的一個子集。僅使用受限 API 的擴充可以只編譯一次就被載入於多個版本的 Python。受限 API 的內容<a class="reference internal" href="#limited-api-list"><span class="std std-ref">列在下方</span></a>。</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.Py_LIMITED_API">
 <span class="sig-name descname"><span class="n"><span class="pre">Py_LIMITED_API</span></span></span><a class="headerlink" href="#c.Py_LIMITED_API" title="連結到這個定義">¶</a><br /></dt>
 <dd><p>在包含 <code class="docutils literal notranslate"><span class="pre">Python.h</span></code> 之前定義此巨集以選擇只使用受限 API，並挑選受限 API 版本。</p>
-<p>Define <code class="docutils literal notranslate"><span class="pre">Py_LIMITED_API</span></code> to the value of <a class="reference internal" href="apiabiversion.html#c.PY_VERSION_HEX" title="PY_VERSION_HEX"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PY_VERSION_HEX</span></code></a>
-corresponding to the lowest Python version your extension supports.
-The extension will be ABI-compatible with all Python 3 releases
-from the specified one onward, and can use Limited API introduced up to that
-version.</p>
+<p>將 <code class="docutils literal notranslate"><span class="pre">Py_LIMITED_API</span></code> 定義為對應於你的擴充有支援的最低 Python 版本的 <a class="reference internal" href="apiabiversion.html#c.PY_VERSION_HEX" title="PY_VERSION_HEX"><code class="xref c c-macro docutils literal notranslate"><span class="pre">PY_VERSION_HEX</span></code></a> 值。該擴充與從指定版本開始的所有 Python 3 版本之 ABI 相容，並且可以使用過去版本有引入的受限 API。</p>
 <p>與其直接使用 <code class="docutils literal notranslate"><span class="pre">PY_VERSION_HEX</span></code> 巨集，不如寫死 (hardcode) 最小次要版本（例如代表 Python 3.10 的 <code class="docutils literal notranslate"><span class="pre">0x030A0000</span></code>），以便在使用未來的 Python 版本進行編譯時仍保持穩定性。</p>
 <p>你還可以將 <code class="docutils literal notranslate"><span class="pre">Py_LIMITED_API</span></code> 定義為 <code class="docutils literal notranslate"><span class="pre">3</span></code>，這與 <code class="docutils literal notranslate"><span class="pre">0x03020000</span></code>（Python 3.2，引入了受限 API 的版本）相同。</p>
 </dd></dl>
@@ -233,8 +226,7 @@ version.</p>
 </section>
 <section id="stable-abi">
 <span id="id3"></span><h3>穩定 ABI<a class="headerlink" href="#stable-abi" title="連結到這個標頭">¶</a></h3>
-<p>To enable this, Python provides a <em>Stable ABI</em>: a set of symbols that will
-remain ABI-compatible across Python 3.x versions.</p>
+<p>為了實現它，Python 提供了一個<em>穩定 ABI (Stable ABI)</em>：一組將在各個 Python 3.x 版本之間保持 ABI 相容的符號。</p>
 <div class="admonition note">
 <p class="admonition-title">備註</p>
 <p>The Stable ABI prevents ABI issues, like linker errors due to missing
@@ -827,7 +819,7 @@ See Python's Backwards Compatibility Policy (<span class="target" id="index-2"><
 <li><p><a class="reference internal" href="object.html#c.PyObject_Repr" title="PyObject_Repr"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_Repr()</span></code></a></p></li>
 <li><p><a class="reference internal" href="object.html#c.PyObject_RichCompare" title="PyObject_RichCompare"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_RichCompare()</span></code></a></p></li>
 <li><p><a class="reference internal" href="object.html#c.PyObject_RichCompareBool" title="PyObject_RichCompareBool"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_RichCompareBool()</span></code></a></p></li>
-<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SelfIter()</span></code></p></li>
+<li><p><a class="reference internal" href="object.html#c.PyObject_SelfIter" title="PyObject_SelfIter"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SelfIter()</span></code></a></p></li>
 <li><p><a class="reference internal" href="object.html#c.PyObject_SetAttr" title="PyObject_SetAttr"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SetAttr()</span></code></a></p></li>
 <li><p><a class="reference internal" href="object.html#c.PyObject_SetAttrString" title="PyObject_SetAttrString"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SetAttrString()</span></code></a></p></li>
 <li><p><a class="reference internal" href="object.html#c.PyObject_SetItem" title="PyObject_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyObject_SetItem()</span></code></a></p></li>
@@ -1332,7 +1324,7 @@ See Python's Backwards Compatibility Policy (<span class="target" id="index-2"><
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
-      最後更新於 12月 07, 2024 (13:18 UTC)。
+      最後更新於 12月 30, 2024 (15:25 UTC)。
     
       <a href="/bugs.html">Found a bug</a>?
     

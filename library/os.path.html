@@ -8,7 +8,7 @@
     <title>os.path --- 常見的路徑名操作 &#8212; Python 3.13.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=41b4f12d" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=08c2cdb3" />
     <link rel="stylesheet" type="text/css" href="../_static/sidebar-wrap.css?v=65806c5a" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
@@ -26,7 +26,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜尋" href="../search.html" />
     <link rel="copyright" title="版權" href="../copyright.html" />
-    <link rel="next" title="fileinput --- 逐列疊代多個輸入串流" href="fileinput.html" />
+    <link rel="next" title="stat --- 直譯 stat() 的結果" href="stat.html" />
     <link rel="prev" title="pathlib --- 物件導向檔案系統路徑" href="pathlib.html" />
     
     <link rel="canonical" href="https://docs.python.org/3/library/os.path.html" />
@@ -136,8 +136,8 @@
   </div>
   <div>
     <h4>下個主題</h4>
-    <p class="topless"><a href="fileinput.html"
-                          title="下一章"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fileinput</span></code> --- 逐列疊代多個輸入串流</a></p>
+    <p class="topless"><a href="stat.html"
+                          title="下一章"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stat</span></code> --- 直譯 <code class="xref py py-func docutils literal notranslate"><span class="pre">stat()</span></code> 的結果</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>此頁面</h3>
@@ -165,7 +165,7 @@
           <a href="../py-modindex.html" title="Python 模組索引"
              >模組</a> |</li>
         <li class="right" >
-          <a href="fileinput.html" title="fileinput --- 逐列疊代多個輸入串流"
+          <a href="stat.html" title="stat --- 直譯 stat() 的結果"
              accesskey="N">下一頁</a> |</li>
         <li class="right" >
           <a href="pathlib.html" title="pathlib --- 物件導向檔案系統路徑"
@@ -220,7 +220,7 @@
 <span id="os-path-common-pathname-manipulations"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code> --- 常見的路徑名操作<a class="headerlink" href="#module-os.path" title="連結到這個標頭">¶</a></h1>
 <p><strong>原始碼：</strong> <a class="extlink-source reference external" href="https://github.com/python/cpython/tree/3.13/Lib/genericpath.py">Lib/genericpath.py</a>、<a class="extlink-source reference external" href="https://github.com/python/cpython/tree/3.13/Lib/posixpath.py">Lib/posixpath.py</a> (用於 POSIX 系統) 和 <a class="extlink-source reference external" href="https://github.com/python/cpython/tree/3.13/Lib/ntpath.py">Lib/ntpath.py</a> (用於 Windows).</p>
 <hr class="docutils" id="index-0" />
-<p>該模組實現了一些有用的路徑名操作函式。若要讀取或寫入檔案，請參閱 <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 函數，要存取檔案系統，請參閱 <a class="reference internal" href="os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> 模組。路徑參數可以以字串、位元組或任何依照 <a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a> 協議實作的物件傳遞。</p>
+<p>該模組實現了一些有用的路徑名操作函式。若要讀取或寫入檔案，請參閱 <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> 函式，要存取檔案系統，請參閱 <a class="reference internal" href="os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a> 模組。路徑參數可以以字串、位元組或任何依照 <a class="reference internal" href="os.html#os.PathLike" title="os.PathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code></a> 協議實作的物件傳遞。</p>
 <p>與 Unix shell 不同，Python 不會<em>自動</em>進行路徑展開 (path expansions)。當應用程式需要進行類似 shell 的路徑展開時，可以明確地呼叫 <a class="reference internal" href="#os.path.expanduser" title="os.path.expanduser"><code class="xref py py-func docutils literal notranslate"><span class="pre">expanduser()</span></code></a> 和 <a class="reference internal" href="#os.path.expandvars" title="os.path.expandvars"><code class="xref py py-func docutils literal notranslate"><span class="pre">expandvars()</span></code></a> 等函式。（另請參閱 <a class="reference internal" href="glob.html#module-glob" title="glob: Unix shell style pathname pattern expansion."><code class="xref py py-mod docutils literal notranslate"><span class="pre">glob</span></code></a> 模組。）</p>
 <div class="admonition seealso">
 <p class="admonition-title">也參考</p>
@@ -228,7 +228,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">備註</p>
-<p>所有這些函數都只接受位元組或字串物件作為參數。如果回傳的是路徑或檔案名稱，結果將是相同型別的物件。</p>
+<p>所有這些函式都只接受位元組或字串物件作為參數。如果回傳的是路徑或檔案名稱，結果將是相同型別的物件。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">備註</p>
@@ -740,8 +740,8 @@ are ignored, and so the result might be missing or otherwise inaccessible.</p>
   </div>
   <div>
     <h4>下個主題</h4>
-    <p class="topless"><a href="fileinput.html"
-                          title="下一章"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fileinput</span></code> --- 逐列疊代多個輸入串流</a></p>
+    <p class="topless"><a href="stat.html"
+                          title="下一章"><code class="xref py py-mod docutils literal notranslate"><span class="pre">stat</span></code> --- 直譯 <code class="xref py py-func docutils literal notranslate"><span class="pre">stat()</span></code> 的結果</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>此頁面</h3>
@@ -772,7 +772,7 @@ are ignored, and so the result might be missing or otherwise inaccessible.</p>
           <a href="../py-modindex.html" title="Python 模組索引"
              >模組</a> |</li>
         <li class="right" >
-          <a href="fileinput.html" title="fileinput --- 逐列疊代多個輸入串流"
+          <a href="stat.html" title="stat --- 直譯 stat() 的結果"
              >下一頁</a> |</li>
         <li class="right" >
           <a href="pathlib.html" title="pathlib --- 物件導向檔案系統路徑"
@@ -840,7 +840,7 @@ are ignored, and so the result might be missing or otherwise inaccessible.</p>
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
-      最後更新於 12月 07, 2024 (13:18 UTC)。
+      最後更新於 12月 30, 2024 (15:25 UTC)。
     
       <a href="/bugs.html">Found a bug</a>?
     
